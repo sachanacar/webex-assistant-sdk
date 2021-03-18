@@ -144,6 +144,7 @@ def generate_keys(filename: str, key_type: str, password: Optional[str] = None):
         private_key = ed25519.Ed25519PrivateKey.generate()
 
     if password:
+        # TODO: ValueError is thrown if str is input into BestAvailableEncryption
         encryption = serialization.BestAvailableEncryption(password)
     else:
         encryption = serialization.NoEncryption()
